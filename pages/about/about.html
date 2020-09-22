@@ -1,11 +1,40 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Calculator
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+  <h2>Unit Price Calculator</h2>
+  <ion-item>
+    <ion-label> Appliance Price (P)</ion-label>
+    <ion-input type="number" [(ngModel)]="this.Ap"></ion-input>
 
+  </ion-item><ion-item>
+    <ion-label>Length of Repayment</ion-label>
+    <ion-input type="number" [(ngModel)]="this.repay"></ion-input>
+  </ion-item>
+  
+
+  <ion-item *ngIf="this.downV">
+    
+<h3> Downpayment Amount: {{this.downV | currency: '&#8369;'}} </h3>
+</ion-item>
+  
+  
+
+ <ion-item *ngIf="this.LoanA">
+<h3> Total Loan Amount: {{this.LoanA | currency: '&#8369;'}} </h3>
+</ion-item>
+
+<ion-item *ngIf="this.MonthPay">
+<h3> Monthly Payment: {{this.MonthPay | currency: '&#8369;'}} </h3>
+</ion-item>
+
+ <button ion-button color="primary" (click)="compute()">Compute</button>
+
+  </ion-list>
 </ion-content>
